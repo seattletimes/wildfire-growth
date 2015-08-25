@@ -8,7 +8,7 @@ var deferred = $.Deferred();
 var getColor = require("./palette");
 
 var request = $.ajax({
-  url: "./assets/all-fires-time.geojson",
+  url: "./assets/all-fires-new.geojson",
   dataType: "json"
 });
 request.done(data => {
