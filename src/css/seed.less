@@ -66,16 +66,26 @@ body {
 }
 
 .date {
+  position: absolute;
   font-style: italic;
   font-family: @df-serif;
   text-align: center;
   background: @df-off-white;
   padding: 5px;
   border: 1px solid @df-light-gray;
+  bottom: 0px;
+  right: 0px;
+  width: 30%;
+  font-weight: bold;
+
+  @media @mobile {
+    font-size: 13px;
+  }
 }
 
 .aspect-outer {
   width: 100%;
+  position: relative;
 
   .aspect-inner {
     height: 0;

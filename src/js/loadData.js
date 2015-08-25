@@ -5,11 +5,14 @@ var getColor = require("./palette");
 
 var map = L.map('map', {
   scrollWheelZoom:false,
+  attributionControl: false
   // doubleClickZoom: false,
   // touchZoom: false,
   // zoomControl:false,
   // dragging: false
 }).setView([48.213, -119.932], 9);
+
+L.control.attribution({position: 'bottomleft'}).addTo(map);
 
 L.tileLayer("//{s}.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
   minZoom: 1,
