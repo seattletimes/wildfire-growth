@@ -34,6 +34,37 @@ body {
   padding-bottom: 15px;
 }
 
+.viewing {
+  padding-top: 5px;
+  padding-bottom: 25px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.animate {
+  margin-left: 5px;
+}
+
+.animate, .current {
+  background: @df-dark-gray;
+  display: inline-block;
+  color: white;
+  font-size: 12px;
+  padding: 8px 12px 6px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background: #e31a1c;
+  }
+
+  &.selected {
+    text-decoration: underline;
+    background: #e31a1c;
+    cursor: default;
+  }
+}
+
 .date {
   font-style: italic;
   font-family: @df-serif;
@@ -62,26 +93,23 @@ body {
 }
 
 .leaflet-container {
-  .chiliwist {
-    @size: 10px;
-    width: @size;
-    height: @size;
-    border-radius: 50%;
-    border: 2px solid black;
-    background: white;
-    margin-top: -@size / 2;
-    margin-left: -@size / 2;
-  }
-
-  .leaflet-container, path.leaflet-clickable {
-    cursor: default !important;
-  }
 
   .leaflet-popup-content-wrapper {
     border-radius: 0;
     padding: 10px 0;
     font-size: 18px;
     font-family: @df-sans;
+
+    .popuptext {
+      text-align: center;
+      font-size: 14px;
+
+      .bigheader {
+        font-size: 16px;
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+    }
   }
 }
 

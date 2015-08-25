@@ -20,7 +20,7 @@ require("./loadData").then(function(data) {
 
   var animate = function() {
 
-    var delay = 300;
+    var delay = 500;
 
     if (!animating) return;
 
@@ -37,19 +37,23 @@ require("./loadData").then(function(data) {
     setTimeout(animate, delay);
   };
   
-  setTimeout(animate, 500);
+  setTimeout(animate, 700);
 
-  document.querySelector(".animate").addEventListener("click", function(){
+  document.querySelector(".animate").addEventListener("click", function() {
+    document.querySelector(".animate").classList.add("selected");
+    document.querySelector(".current").classList.remove("selected");
     data.current.setStyle({fillOpacity: 0});
     animating = true;
     index = 0;
     animate();
   });
-  document.querySelector(".current").addEventListener("click", function(){
+  document.querySelector(".current").addEventListener("click", function() {
+    document.querySelector(".animate").classList.remove("selected");
+    document.querySelector(".current").classList.add("selected");
     data.current.setStyle({fillOpacity: 1});
     data.allLayers.forEach(layer => layer.setStyle({ fillOpacity: 0 }));
     animating = false;
-
+    document.querySelector(".date").innerHTML = moment(Date.now()).format("MMM D, YYYY");
   });
 
 });
