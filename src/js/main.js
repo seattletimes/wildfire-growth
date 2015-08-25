@@ -6,24 +6,26 @@ require("component-responsive-frame/child");
 require("component-leaflet-map");
 
 var $ = require("jquery");
-var getColor = require("./palette");
 
 require("./loadData").then(function(data) {
 
+  data.allLayers.forEach(layer => layer.setStyle({ fillOpacity: 0 }));
+
   var showSample = function(sample) {
-    data.allLayers.forEach(layer => layer.setStyle({ fillOpacity: 0 }));
     sample.layers.forEach(layer => layer.setStyle({ fillOpacity: .8 }));
   };
 
-  var animating = true;
   var index = 0;
-  
+
   var animate = function() {
-    if (!animating) return;
     index = (index + 1) % data.timestamps.length;
+    if (index == 0) {
+      data.allLayers.forEach(layer => layer.setStyle({ fillOpacity: 0 }));
+    }
     var time = data.timestamps[index];
+    document.querySelector(".date").innerHTML = new Date(time);
     showSample(data.samples[time]);
-    setTimeout(animate, 400);
+    setTimeout(animate, 300);
   };
   
   animate();

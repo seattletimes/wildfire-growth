@@ -33,7 +33,7 @@ request.done(data => {
       samples[timestamp].layers.push(layer);
       samples[timestamp].area += props.acres;
       allLayers.push(layer);
-      layer.setStyle({ stroke: 0, fillColor: getColor(timestamp) });
+      layer.setStyle({ stroke: 0, fillColor: getColor(props.fire_name) });
     }
   });
 

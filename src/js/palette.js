@@ -1,16 +1,11 @@
 var colors = {
-  24: "#FFD990",
-  23: "#FCBB6D",
-  21: "#F99E49",
-  20: "#F47920",
-  19: "#FA4C3C",
-  18: "#E54E5F",
-  17: "#A05DA5",
-  16: "#522E91",
-  15: "#260066"
+  "Wolverine": "#800026",
+  "Okanogan Complex": "#bd0026",
+  "Kettle North Complex": "#e31a1c",
+  "Chelan Complex": "#fc4e2a",
+  "North Star": "#fd8d3c"
 };
 
 module.exports = function(value) {
-  var day = new Date(value).getDate();
-  return colors[day];
+  return colors[value];
 };
