@@ -1,0 +1,85 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@import "seattletimes";
+@import "flexbox";
+
+body {
+  font-family: @df-sans;
+  max-width: 630px;
+  margin: auto;
+}
+
+.outmost {
+  border-top: 1px solid @df-border-gray;
+  border-bottom: 1px solid @df-border-gray;
+  padding: 20px 0;
+  margin: 20px 0;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.chatter {
+  font-size: 16px;
+  font-family: @df-serif;
+  padding-bottom: 15px;
+}
+
+.aspect-outer {
+  width: 100%;
+
+  .aspect-inner {
+    height: 0;
+    padding-bottom: 70%;
+    position: relative;
+
+    leaflet-map {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.leaflet-container {
+  .chiliwist {
+    @size: 10px;
+    width: @size;
+    height: @size;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: white;
+    margin-top: -@size / 2;
+    margin-left: -@size / 2;
+  }
+
+  .leaflet-container, path.leaflet-clickable {
+    cursor: default !important;
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-radius: 0;
+    padding: 10px 0;
+    font-size: 18px;
+    font-family: @df-sans;
+  }
+}
+
+.source {
+  padding-top: 10px;
+}
+.source, .credit {
+  font-size: 11.5px;
+  color: @df-middle-gray;
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_adHead.html") %>
+  </head>
+  <body>
+
+    <responsive-child>
+      <div class="outmost">
+
+        <div class="title">Here Be Fire</div>
+
+        <div class="chatter">
+          Look at all this fire. At first there was just some fire. Then there was more fire. Now, our whole state is on fire. Check it out.
+        </div>
+
+        <div class="map-container aspect-outer">
+          <div class="aspect-inner">
+            <leaflet-map lat="48.213" lng="-119.932" zoom="9">
+              <map-options>
+                { "dragging": false, "scrollWheelZoom": false, "zoomControl": false }
+              </map-options>
+              <tile-layer layer="esriTopographic"></tile-layer>
+            </leaflet-map>
+          </div>
+        </div>
+
+      <div class="source"><em>Source: USGS</em></div>
+      <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
+
+      </div>
+    </responsive-child>
+
+    <script src="app.js"></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_adFoot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
