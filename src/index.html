@@ -4,6 +4,11 @@
     <title><%= json.project.title %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
+    <script src="//cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+    <script src="//cdn.jsdelivr.net/leaflet.esri/1.0.0/esri-leaflet.js"></script>
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
@@ -15,25 +20,20 @@
         <div class="title">Here Be Fire</div>
 
         <div class="chatter">
-          Look at all this fire. At first there was just some fire. Then there was more fire. Now, our whole state is on fire. Check it out.
+          Nearly 500,000 acres are burning in Washington state, some of them within highly populated areas. The fires include the Goode fire, the Wolverine fire, the Okanogan complex fire, the North Star fire and the Chelan complex fire.
         </div>
+
+        <div class="animate">ANIMATE</div>
+        <div class="current">CURRENT</div>
 
         <div class="date"></div>
 
         <div class="map-container aspect-outer">
-          <div class="aspect-inner">
-            <leaflet-map lat="48.213" lng="-119.932" zoom="9">
-              <map-options>
-                { "dragging": false, "scrollWheelZoom": false, "zoomControl": false }
-              </map-options>
-              <tile-layer layer="esriTerrain"></tile-layer>
-              <tile-layer layer="esriShadedReliefLabels"></tile-layer>
-            </leaflet-map>
-          </div>
+            <div class="aspect-inner" id="map"></div>
         </div>
 
       <div class="source"><em>Source: USGS</em></div>
-      <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
+      <div class="credit">Audrey Carlsen and Garland Potts / The Seattle Times</div>
 
       </div>
     </responsive-child>
