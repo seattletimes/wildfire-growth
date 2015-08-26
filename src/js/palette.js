@@ -1,8 +1,8 @@
 var colors = {
   "Wolverine": "#fd8d3c",
   "Chelan Complex": "#fc4e2a",
-  "Okanogan Complex": "#e31a1c",
-  "Kettle North Complex": "#bd0026",
+  "Okanogan Complex": "#bd0026",
+  "Kettle North Complex": "#e31a1c",
   "North Star": "#800026"
 };
 

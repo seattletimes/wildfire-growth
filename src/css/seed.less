@@ -30,12 +30,33 @@ body {
   font-size: 28px;
   text-align: center;
   padding-bottom: 5px;
+
+  @media @mobile {
+    font-size: 24px;
+  }
 }
 
 .chatter {
   font-size: 16px;
   font-family: @df-serif;
   padding-bottom: 15px;
+}
+
+.key-container {
+  padding-top: 5px;
+}
+.key {
+  display: inline-block;
+  padding-right: 10px;
+}
+.tile {
+  font-size: 13px;
+}
+.swatch {
+  display: inline-block;
+  margin-right: 5px;
+  height: 10px;
+  width: 10px;
 }
 
 .date {
@@ -57,9 +78,26 @@ body {
   }
 }
 
+.flex-container {
+  .display-flex();
+}
+
+.sidebar {
+  font-size: 16px;
+  .flex(0 0 220px);
+
+  .tile {
+    background: @df-off-white;
+    border-bottom: 1px dashed @df-light-gray;
+    border-top: 1px dashed @df-light-gray;
+    padding: 6px 15px 6px 30px;
+  }
+}
+
 .aspect-outer {
   width: 100%;
   position: relative;
+  .flex(1);
 
   .aspect-inner {
     height: 0;
