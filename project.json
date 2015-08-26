@@ -5,8 +5,8 @@
       "path": "automatic-spiral"
     },
     "live": {
-      "bucket": "projects.seattletimes.com",
-      "path": "2015/local/wildfire-growth"
+      "bucket": "",
+      "path": ""
     }
   },
   "title": "",
@@ -15,6 +15,6 @@
   "slug": "",
   "tags": [],
   "image": "http://seattletimes.com/art/ui/fb_icon_large.jpg",
-  "production": true,
+  "production": false,
   "embedded": true
 }
