@@ -21,18 +21,50 @@ L.tileLayer("//{s}.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServe
   attribution: "<a href=\"https://static.arcgis.com/attribution/World_Topo_Map\">Esri</a>"
 }).addTo(map);
 
-var current = L.esri.featureLayer({
-  url: "https://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/Wildfire_Activity/MapServer/2",
-  style: function (feature) {
-    return { stroke: 0, fillColor: getColor(feature.properties.FIRE_NAME), weight: 2, fillOpacity: 0 };
-  }
-}).addTo(map);
+// var current = L.esri.featureLayer({
+//   url: "https://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/Wildfire_Activity/MapServer/2",
+//   style: function (feature) {
+//     return { stroke: 0, fillColor: getColor(feature.properties.FIRE_NAME), weight: 2, fillOpacity: 0 };
+//   }
+// }).addTo(map);
 
-var popupTemplate = '<div class="popuptext"><div class="bigheader">{name}</div><div>Acres burned: <span class="mediumheader">{acres}</span></div><div>'
+
+function getSize(d) {
+    return d > 150000 ? '16' :
+           d > 110000  ? '14' :
+           d > 80000  ? '12' :
+           d > 40000  ? '10' :
+           d > 10000   ? '8' :
+           d > 5000   ? '6' :
+           d > 100   ? '4' :
+                      '4';
+}
+
+  function style(feature) {
+    return {
+    radius: getSize(feature.properties.AREA_),
+    fillColor: "#ff3d00",
+    color: "#ff3d00",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.4
+    }
+};
+
+var current = L.esri.featureLayer({
+       url: "https://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/Wildfire_Activity/MapServer/0",
+       style: style,
+      pointToLayer: function (feature, latlng) {
+       return L.circleMarker(latlng);
+   }
+       }).addTo(map);
+
+
+var popupTemplate = '<div class="popuptext"><div class="bigheader">{name}</div><div>Acres burned: <span class="emphasis">{acres}</span></div><div>Percent contained: <span class="emphasis">{PER_CONT}%</span></div><div class="note">As of {startdate}</div><div>'
 ;
 
 current.bindPopup(function(feature){
- return L.Util.template(popupTemplate, {name: feature.properties.FIRE_NAME, acres: feature.properties.ACRES.toLocaleString()})
+ return L.Util.template(popupTemplate, {name: feature.properties.FIRE_NAME, startdate: feature.properties.LOAD_DATE, PER_CONT: feature.properties.PER_CONT, acres: feature.properties.AREA_.toLocaleString()})
 });
 
 var request = $.ajax({
@@ -46,7 +78,7 @@ var request = $.ajax({
 // });
 
 // $.when(request, currentRequest).then(function(data, currentData) {
-  
+
 // })
 
 request.done(data => {
