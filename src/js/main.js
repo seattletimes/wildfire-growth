@@ -52,7 +52,7 @@ require("./loadData").then(function(data) {
     document.querySelector(".current").classList.add("selected");
 
     //This is what fixes the icons and/or shapes turning blue. If you set the styles here, than if you click the button it is resetting the styles again. It wont get the size right because that is set in the other file, but at least we dont get blue bubbles!
-    data.current.setStyle({fillOpacity: 0.4, opacity: 1, fillColor: "#ff3d00", color: "#ff3d00", weight: 1});
+    data.current.setStyle({fillOpacity: 0.4, opacity: 1, fillColor: "#A52F57", color: "#A52F57", weight: 1});
 
     data.allLayers.forEach(layer => layer.setStyle({ fillOpacity: 0 }));
     animating = false;

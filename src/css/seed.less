@@ -36,7 +36,7 @@ body {
 
 .viewing {
   padding-top: 5px;
-  padding-bottom: 25px;
+  padding-bottom: 16px;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
@@ -47,20 +47,21 @@ body {
 }
 
 .animate, .current {
-  background: @df-dark-gray;
+  background: #c6c6c6;
   display: inline-block;
   color: white;
   font-size: 12px;
-  padding: 8px 12px 6px 12px;
+  padding: 8px 30px 6px 30px;
   cursor: pointer;
+  border-radius:3px;
 
   &:hover {
-    background: #e31a1c;
+    background: #EB5E60;
   }
 
   &.selected {
     text-decoration: underline;
-    background: #e31a1c;
+    background: #A52F57;
     cursor: default;
   }
 }

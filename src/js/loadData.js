@@ -43,8 +43,8 @@ function getSize(d) {
 function style(feature) {
     return {
     radius: getSize(feature.properties.AREA_),
-    fillColor: "#ff3d00",
-    color: "#ff3d00",
+    fillColor: "#A52F57",
+    color: "#A52F57",
     weight: 1,
     opacity: 1,
     fillOpacity: 0.4
