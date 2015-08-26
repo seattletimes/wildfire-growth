@@ -36,13 +36,13 @@ require("./loadData").then(function(data) {
     showSample(data.samples[time]);
     setTimeout(animate, delay);
   };
-  
+
   setTimeout(animate, 700);
 
   document.querySelector(".animate").addEventListener("click", function() {
     document.querySelector(".animate").classList.add("selected");
     document.querySelector(".current").classList.remove("selected");
-    data.current.setStyle({fillOpacity: 0});
+    data.current.setStyle({fillOpacity: 0, opacity: 0});
     animating = true;
     index = 0;
     animate();
@@ -50,7 +50,10 @@ require("./loadData").then(function(data) {
   document.querySelector(".current").addEventListener("click", function() {
     document.querySelector(".animate").classList.remove("selected");
     document.querySelector(".current").classList.add("selected");
-    data.current.setStyle({fillOpacity: 1});
+
+    //This is what fixes the icons and/or shapes turning blue. If you set the styles here, than if you click the button it is resetting the styles again. It wont get the size right because that is set in the other file, but at least we dont get blue bubbles!
+    data.current.setStyle({fillOpacity: 0.4, opacity: 1, fillColor: "#ff3d00", color: "#ff3d00", weight: 1});
+
     data.allLayers.forEach(layer => layer.setStyle({ fillOpacity: 0 }));
     animating = false;
     document.querySelector(".date").innerHTML = moment(Date.now()).format("MMM D, YYYY");

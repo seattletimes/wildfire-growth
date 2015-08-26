@@ -40,7 +40,7 @@ function getSize(d) {
                       '4';
 }
 
-  function style(feature) {
+function style(feature) {
     return {
     radius: getSize(feature.properties.AREA_),
     fillColor: "#ff3d00",
@@ -52,12 +52,12 @@ function getSize(d) {
 };
 
 var current = L.esri.featureLayer({
-       url: "https://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/Wildfire_Activity/MapServer/0",
-       style: style,
-      pointToLayer: function (feature, latlng) {
-       return L.circleMarker(latlng);
-   }
-       }).addTo(map);
+  url: "https://tmservices1.esri.com/arcgis/rest/services/LiveFeeds/Wildfire_Activity/MapServer/0",
+  style: style,
+  pointToLayer: function (feature, latlng) {
+    return L.circleMarker(latlng);
+  }
+}).addTo(map);
 
 
 var popupTemplate = '<div class="popuptext"><div class="bigheader">{name}</div><div>Acres burned: <span class="emphasis">{acres}</span></div><div>Percent contained: <span class="emphasis">{PER_CONT}%</span></div><div class="note">As of {startdate}</div><div>'
