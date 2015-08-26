@@ -1,9 +1,9 @@
 var colors = {
-  "Wolverine": "#800026",
-  "Okanogan Complex": "#bd0026",
-  "Kettle North Complex": "#e31a1c",
+  "Wolverine": "#fd8d3c",
   "Chelan Complex": "#fc4e2a",
-  "North Star": "#fd8d3c"
+  "Okanogan Complex": "#e31a1c",
+  "Kettle North Complex": "#bd0026",
+  "North Star": "#800026"
 };
 
 module.exports = function(value) {

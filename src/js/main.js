@@ -2,10 +2,11 @@
 // require("./lib/ads");
 // var track = require("./lib/tracking");
 
+var $ = require("jquery");
+var moment = require("moment");
+
 require("component-responsive-frame/child");
 require("component-leaflet-map");
-
-var $ = require("jquery");
 
 require("./loadData").then(function(data) {
 
@@ -18,16 +19,21 @@ require("./loadData").then(function(data) {
   var index = 0;
 
   var animate = function() {
+    var delay = 500;
+
     index = (index + 1) % data.timestamps.length;
     if (index == 0) {
       data.allLayers.forEach(layer => layer.setStyle({ fillOpacity: 0 }));
     }
+    if (index == data.timestamps.length - 1) {
+      delay = 2000;
+    }
     var time = data.timestamps[index];
-    document.querySelector(".date").innerHTML = new Date(time);
+    document.querySelector(".date").innerHTML = moment(time).format("MMM D, YYYY");
     showSample(data.samples[time]);
-    setTimeout(animate, 300);
+    setTimeout(animate, delay);
   };
   
-  animate();
+   setTimeout(animate, 700);
 
 });
